@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Phone, X } from 'lucide-react';
-import { CTAButton } from './CTAButton';
-import { navLinks, business } from '../data/siteContent';
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, Phone, X } from "lucide-react";
+import { CTAButton } from "./CTAButton";
+import { navLinks, business } from "../data/siteContent";
 
 const navItemVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -13,9 +13,12 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 bg-slate-950/70 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-40 bg-slate-950/80 backdrop-blur-lg shadow-md">
       <div className="container flex items-center justify-between py-4">
-        <a href="#hero" className="font-display text-2xl uppercase tracking-[0.35em] text-white">
+        <a
+          href="#hero"
+          className="font-display text-xl md:text-2xl uppercase tracking-[0.3em] text-white hover:text-brand transition"
+        >
           Advantage Roofing
         </a>
 
@@ -24,7 +27,7 @@ export function Header() {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className="text-sm uppercase tracking-[0.25em] text-white/70 transition hover:text-brand"
+              className="text-sm uppercase tracking-[0.25em] text-white/70 hover:text-white transition"
             >
               {link.label}
             </a>
@@ -32,7 +35,10 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <CTAButton href={`tel:${business.phone.replace(/\D/g, '')}`} className="shadow-glow">
+          <CTAButton
+            href={`tel:${business.phone.replace(/\D/g, "")}`}
+            className="shadow-glow"
+          >
             <Phone className="size-4" aria-hidden="true" />
             Call Now
           </CTAButton>
@@ -42,7 +48,7 @@ export function Header() {
         </div>
 
         <button
-          className="inline-flex rounded-full bg-white/10 p-2 text-white lg:hidden"
+          className="inline-flex rounded-full bg-white/10 p-2 text-white lg:hidden hover:bg-white/20 transition"
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
@@ -56,7 +62,7 @@ export function Header() {
           <motion.nav
             id="mobile-nav"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="border-t border-white/10 bg-slate-950/95 lg:hidden"
           >
@@ -80,7 +86,7 @@ export function Header() {
               ))}
               <li className="pt-2">
                 <CTAButton
-                  href={`tel:${business.phone.replace(/\D/g, '')}`}
+                  href={`tel:${business.phone.replace(/\D/g, "")}`}
                   className="w-full justify-center"
                   onClick={() => setMobileOpen(false)}
                 >
