@@ -7,8 +7,8 @@ export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden bg-slate-950 py-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(219,127,43,0.15),transparent_60%)]" />
-      <div className="container relative grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)]">
-        <div className="space-y-8">
+      <div className="container relative grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)]">
+        <div className="space-y-10">
           <SectionTitle
             eyebrow="Contact"
             title="Ready for your next project?"
@@ -49,9 +49,31 @@ export function Contact() {
 
           <div className="flex flex-wrap gap-4">
             <CTAButton href={`tel:${business.phone.replace(/\D/g, '')}`}>Emergency Call</CTAButton>
-            <CTAButton href="#services" variant="ghost">
+            <CTAButton href="/#services" variant="ghost">
               Explore Services
             </CTAButton>
+          </div>
+
+          <div className="glass-card overflow-hidden rounded-3xl border-white/10">
+            <iframe
+              title="Advantage Company Contracting Roofing and Plumbing map"
+              src="https://maps.google.com/maps?cid=0x6dc8c5290c67e593&output=embed"
+              className="h-[320px] w-full md:h-[360px]"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="flex items-center justify-between border-t border-white/10 px-5 py-4 text-xs uppercase tracking-[0.3em] text-white/60">
+              <span>View us on Google Maps</span>
+              <a
+                href="https://www.google.com/maps/place/Advantage+Company+Contracting+Roofing+and+Plumbing/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-brand hover:text-brand-light"
+              >
+                Open
+              </a>
+            </div>
           </div>
         </div>
 

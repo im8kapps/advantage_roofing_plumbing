@@ -13,7 +13,7 @@ export function Footer() {
         </div>
         <nav className="flex flex-wrap gap-x-8 gap-y-3 uppercase tracking-[0.3em] text-xs">
           {navLinks.map((link) => (
-            <a key={link.id} href={`#${link.id}`} className="hover:text-brand">
+            <a key={link.label} href={link.href} className="hover:text-brand">
               {link.label}
             </a>
           ))}

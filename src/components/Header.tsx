@@ -16,7 +16,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-40 bg-slate-950/80 backdrop-blur-lg shadow-md">
       <div className="container flex items-center justify-between py-4">
         <a
-          href="#hero"
+          href="/"
           className="font-display text-xl md:text-2xl uppercase tracking-[0.3em] text-white hover:text-brand transition"
         >
           Advantage Roofing
@@ -25,8 +25,8 @@ export function Header() {
         <nav className="hidden items-center gap-10 lg:flex">
           {navLinks.map((link) => (
             <a
-              key={link.id}
-              href={`#${link.id}`}
+              key={link.label}
+              href={link.href}
               className="text-sm uppercase tracking-[0.25em] text-white/70 hover:text-white transition"
             >
               {link.label}
@@ -42,7 +42,7 @@ export function Header() {
             <Phone className="size-4" aria-hidden="true" />
             Call Now
           </CTAButton>
-          <CTAButton href="#contact" variant="ghost">
+          <CTAButton href="/#contact" variant="ghost">
             Request Quote
           </CTAButton>
         </div>
@@ -69,14 +69,14 @@ export function Header() {
             <ul className="flex flex-col space-y-2 px-6 py-4">
               {navLinks.map((link, index) => (
                 <motion.li
-                  key={link.id}
+                  key={link.label}
                   variants={navItemVariants}
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: index * 0.05 }}
                 >
                   <a
-                    href={`#${link.id}`}
+                    href={link.href}
                     className="block rounded-lg px-3 py-2 text-sm uppercase tracking-[0.25em] text-white/80 transition hover:bg-white/10"
                     onClick={() => setMobileOpen(false)}
                   >
@@ -96,7 +96,7 @@ export function Header() {
               </li>
               <li>
                 <CTAButton
-                  href="#contact"
+                  href="/#contact"
                   variant="ghost"
                   className="w-full justify-center"
                   onClick={() => setMobileOpen(false)}

@@ -1,28 +1,21 @@
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
-import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
-import { Hero } from './sections/Hero';
-import { Highlights } from './sections/Highlights';
-import { Process } from './sections/Process';
-import { Projects } from './sections/Projects';
-import { Services } from './sections/Services';
-import { Testimonials } from './sections/Testimonials';
-import { WhyUs } from './sections/WhyUs';
+import { HomePage } from './pages/Home';
+import { BlogIndex } from './pages/Blog/BlogIndex';
+import { BlogPostPage } from './pages/Blog/BlogPostPage';
+import { NotFoundPage } from './pages/NotFound';
 
 function App() {
   return (
     <div className="bg-slate-950 text-white">
       <Header />
-      <main>
-        <Hero />
-        <Highlights />
-        <Services />
-        <WhyUs />
-        <Projects />
-        <Process />
-        <Testimonials />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
       <Footer />
     </div>
   );

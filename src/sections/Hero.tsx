@@ -45,7 +45,7 @@ export function Hero() {
             weather.
           </p>
           <div className="flex flex-wrap items-center gap-6">
-            <CTAButton href="#contact" className="shadow-glow">
+            <CTAButton href="/#contact" className="shadow-glow">
               Request a site visit
             </CTAButton>
             <a
