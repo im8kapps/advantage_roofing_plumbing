@@ -1,30 +1,19 @@
-import { Header } from './components/Header';
-import { Contact } from './sections/Contact';
-import { Footer } from './sections/Footer';
-import { Hero } from './sections/Hero';
-import { Highlights } from './sections/Highlights';
-import { Process } from './sections/Process';
-import { Projects } from './sections/Projects';
-import { Services } from './sections/Services';
-import { Testimonials } from './sections/Testimonials';
-import { WhyUs } from './sections/WhyUs';
+import { Routes, Route } from 'react-router-dom';
+import { ScrollToHash } from './components/ScrollToHash';
+import { BlogPage } from './pages/BlogPage';
+import { BlogPostPage } from './pages/BlogPostPage';
+import { HomePage } from './pages/HomePage';
 
 function App() {
   return (
-    <div className="bg-slate-950 text-white">
-      <Header />
-      <main>
-        <Hero />
-        <Highlights />
-        <Services />
-        <WhyUs />
-        <Projects />
-        <Process />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <ScrollToHash />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+      </Routes>
+    </>
   );
 }
 

@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    preview_path: blog/{{slug}}
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+      - label: Summary
+        name: summary
+        widget: text
+        hint: '2-3 sentences shown on the homepage and blog list.'
+      - label: Hero Image
+        name: heroImage
+        widget: image
+        required: false
+        allow_multiple: false
+        hint: 'Optional featured image used on cards and detail pages.'
+      - label: Body
+        name: body
+        widget: markdown
+        hint: 'Use headings, bullet lists, and links for clarity. Images are stored in /uploads.'

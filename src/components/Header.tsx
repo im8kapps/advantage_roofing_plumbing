@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Phone, X } from "lucide-react";
-import { CTAButton } from "./CTAButton";
-import { navLinks, business } from "../data/siteContent";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Menu, Phone, X } from 'lucide-react';
+import { CTAButton } from './CTAButton';
+import { navLinks, business } from '../data/siteContent';
 
 const navItemVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -17,7 +18,7 @@ export function Header() {
       <div className="container flex items-center justify-between py-4">
         <a
           href="#hero"
-          className="font-display text-xl md:text-2xl uppercase tracking-[0.3em] text-white hover:text-brand transition"
+          className="font-display text-xl md:text-2xl uppercase tracking-[0.3em] text-white transition hover:text-brand"
         >
           Advantage Roofing
         </a>
@@ -32,6 +33,12 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          <Link
+            to="/blog"
+            className="text-sm uppercase tracking-[0.25em] text-white/70 transition hover:text-white"
+          >
+            Blog
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -84,6 +91,20 @@ export function Header() {
                   </a>
                 </motion.li>
               ))}
+              <motion.li
+                variants={navItemVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: navLinks.length * 0.05 }}
+              >
+                <Link
+                  to="/blog"
+                  className="block rounded-lg px-3 py-2 text-sm uppercase tracking-[0.25em] text-white/80 transition hover:bg-white/10"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Blog
+                </Link>
+              </motion.li>
               <li className="pt-2">
                 <CTAButton
                   href={`tel:${business.phone.replace(/\D/g, "")}`}

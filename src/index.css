@@ -26,4 +26,37 @@
   .section-heading {
     @apply text-4xl md:text-5xl font-display tracking-wide uppercase text-white;
   }
+
+  .markdown-body {
+    @apply space-y-6 text-base text-white/80;
+  }
+
+  .markdown-body h2 {
+    @apply mt-10 text-2xl font-semibold uppercase tracking-[0.2em] text-white;
+  }
+
+  .markdown-body h3 {
+    @apply mt-8 text-xl font-semibold uppercase tracking-[0.15em] text-white;
+  }
+
+  .markdown-body p {
+    @apply leading-relaxed;
+  }
+
+  .markdown-body ul,
+  .markdown-body ol {
+    @apply ml-6 space-y-2 text-white/70;
+  }
+
+  .markdown-body ul {
+    @apply list-disc;
+  }
+
+  .markdown-body ol {
+    @apply list-decimal;
+  }
+
+  .markdown-body a {
+    @apply text-brand underline decoration-brand-light/50 underline-offset-4 hover:text-brand-light;
+  }
 }

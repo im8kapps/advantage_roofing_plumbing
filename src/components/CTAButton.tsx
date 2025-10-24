@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import type { LinkProps } from 'react-router-dom';
 
 type Variant = 'primary' | 'ghost';
 
@@ -17,9 +19,16 @@ type CTAButtonAnchorProps = BaseProps &
 type CTAButtonButtonProps = BaseProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: undefined;
+    to?: undefined;
   };
 
-type CTAButtonProps = CTAButtonAnchorProps | CTAButtonButtonProps;
+type CTAButtonLinkProps = BaseProps &
+  Omit<LinkProps, 'to' | 'className' | 'children'> & {
+    to: string;
+    href?: undefined;
+  };
+
+type CTAButtonProps = CTAButtonAnchorProps | CTAButtonButtonProps | CTAButtonLinkProps;
 
 const variants: Record<Variant, string> = {
   primary:
@@ -29,12 +38,26 @@ const variants: Record<Variant, string> = {
 };
 
 export function CTAButton(props: CTAButtonProps) {
-  if ('href' in props) {
-    const { children, className, variant = 'primary', href, ...rest } = props;
-    const anchorProps = rest as Omit<
-      CTAButtonAnchorProps,
-      'children' | 'className' | 'variant' | 'href'
-    >;
+  if ('to' in props && typeof props.to === 'string') {
+    const { children, className, variant = 'primary', to, ...rest } = props as CTAButtonLinkProps;
+    const linkProps = rest as Omit<CTAButtonLinkProps, 'children' | 'className' | 'variant' | 'to'>;
+
+    const buttonClasses = clsx(
+      'inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-widest transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950',
+      variants[variant],
+      className,
+    );
+
+    return (
+      <Link to={to} className={buttonClasses} {...linkProps}>
+        {children}
+      </Link>
+    );
+  }
+
+  if ('href' in props && typeof props.href === 'string') {
+    const { children, className, variant = 'primary', href, ...rest } = props as CTAButtonAnchorProps;
+    const anchorProps = rest as Omit<CTAButtonAnchorProps, 'children' | 'className' | 'variant' | 'href'>;
 
     const buttonClasses = clsx(
       'inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-widest transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950',
