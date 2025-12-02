@@ -2,7 +2,7 @@
 title: Beware
 date: 2025-12-01
 summary: "Welding plastic hashtag roofing successfully is skill that not everyone has. "
-heroImage: /uploads/beware-rubber-stamp-260nw-1240677115.jpg.webp
+heroImage: /uploads/istockphoto-1306335330-612x612.jpg
 ---
 Hytech
 Roofing Inc was hired to come in and evaluate / repair a problem. A diBerent roofing
