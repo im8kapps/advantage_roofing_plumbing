@@ -1,6 +1,6 @@
 ---
 title: Wednesday When Win
-date: 2025-12-10
+date: 2025-12-09
 summary: |-
   THE FUTURE of COMMERCIAL ROOFING: Polyester Reinforced, Acrylic Fluid Applied
   Systems!
